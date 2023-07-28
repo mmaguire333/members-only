@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+    h1= title 
+
+    form(method='POST' action='')
+        div 
+            label(for='username') Username: 
+            input(type='text', placeholder='Enter your username', name='username' required='true')
+        div 
+            label(for='password') Password: 
+            input(type='password', placeholder='Enter your password', name='password', required='true')
+        button(type='submit') Submit
