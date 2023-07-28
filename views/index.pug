@@ -1,7 +1,26 @@
 extends layout
 
 block content
-  h1= title
+  if currentUser 
+    nav.main-nav 
+      h1.nav-title= title 
+      ul.nav-links 
+        if !currentUser.member
+          li 
+            a(href='/add-membership') Become a Member
+        li 
+          a(href='/log-out') Log Out
 
-  button(type='button')
-    a(href='/sign-up') Sign Up
+    p.welcome-message.center-text Welcome !{currentUser.first_name} !{currentUser.last_name}!
+    if !currentUser.member
+      p.center-text Please update your membership status to view post content and authors.
+  
+  else 
+    nav.main-nav 
+      h1.nav-title= title 
+      ul.nav-links 
+        li 
+          a(href='log-in') Log In 
+        li 
+          a(href='sign-up') Sign Up
+    p.welcome-message.center-text Welcome! Please log in to view post content and authors.
