@@ -73,3 +73,9 @@ exports.user_create_post = [
         }
     })
 ];
+
+exports.user_login_get = (req, res, next) => {
+    res.render('log-in-form', {
+        title: 'Log In'
+    });
+};
